@@ -1,0 +1,15 @@
+# Cursor Rules
+- Stack: Next.js 14 (app router, TypeScript), Tailwind CSS, shadcn/ui, Vercel deploy, Supabase for auth/db/storage.
+- Use app directory and server components by default; use client components only when needed (hooks, event handlers).
+- Prefer Server Actions and Route Handlers (app/api/*) for mutations; avoid legacy pages/api.
+- Tailwind: use @/app/globals.css; keep utility-first; avoid inline style objects.
+- shadcn/ui: generate components into @/components/ui; import from there, not the package; keep consistent with Tailwind classes and cva.
+- Icons: use lucide-react; don’t add other icon packs.
+- Forms: prefer react-hook-form + zod for validation; use shadcn/ui form primitives.
+- State: use React state/hooks minimally; for global client state, prefer Zustand over Redux.
+- Supabase: use @supabase/supabase-js and @supabase/auth-helpers-nextjs; read env via NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY; never hardcode keys.
+- Data fetching: server-side via Supabase client in server components or route handlers; revalidate/tag cache appropriately; avoid client-side fetch unless necessary.
+- Auth: protect server components/route handlers with auth-helpers; use middleware.ts for route protection when needed.
+- Vercel: optimize for edge/runtime when it makes sense; avoid Node-only APIs unless required.
+- Testing: add minimal tests for server utilities (e.g., zod schemas) when editing core logic; otherwise keep footprint light.
+- UI kit: prioritize Magic UI for components; supplement with shadcn/ui and lucide-react; avoid other UI libraries to keep dependencies minimal.
