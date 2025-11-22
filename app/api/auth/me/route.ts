@@ -30,7 +30,7 @@ export async function GET() {
   const payload: AuthUserResponse = {
     user: {
       id: user.id,
-      email: user.email,
+      email: user.email ?? null,
       name: profile?.name ?? null,
       interests: profile?.interests ?? [],
       credibilityScore: profile?.credibility_score ?? 0

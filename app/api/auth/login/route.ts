@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
   const payload: AuthUserResponse = {
     user: {
       id: userId,
-      email: data.user.email,
+      email: data.user.email ?? null,
       name: profile?.name ?? null,
       interests: profile?.interests ?? [],
       credibilityScore: profile?.credibility_score ?? 0
